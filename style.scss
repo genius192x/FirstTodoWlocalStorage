@@ -92,7 +92,9 @@ body {
 		width: 540px;
 		min-height: 901px;
 		padding: 20px;
-		overflow: hidden;
+		overflow-y: hidden;
+		overflow-x: auto;
+
 		border-radius: 20px;
 		background-color: #00294b;
 		color: white;
