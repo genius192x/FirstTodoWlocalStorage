@@ -43,10 +43,11 @@ newUser.addEventListener('submit', (e) => {
 		authWrap.style.transform = "translate(-100%,0)"
 		let mainWrap = document.querySelector('.main__app');
 		mainWrap.style.transform = "translate(0,0)"
-		authWrap.remove();
+		setTimeout(authWrap.remove(), 1000);
+		
 	}
 
-	getUserInfo()
+getUserInfo()
 })
 
 
