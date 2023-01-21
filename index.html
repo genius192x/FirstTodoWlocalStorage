@@ -5,52 +5,53 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./css/style.css
+	<link rel="stylesheet" href="/css/style.css">
+
 	<title>ToDoApp</title>
 </head>
 
 <body>
 	<div class=" app__wrapper">
-	<header>
-		<div class="app__header">
-			<div class="header__avatar">
-				<img src="./img/Rectangle-15.svg" alt="">
-			</div>
-			<div class="header__actions">
-				<button class="actions__avatar actions-btn">Icon</button>
-				<button class="actions__logout actions-btn">LogOut</button>
-			</div>
-		</div>
-	</header>
-	<main>
-		<h1 class="main__title">
-			Hello
-			Bro
-		</h1>
-		<div class="main__info">
-			<div class="main__date">Today's <br>
-				<span>Jan.20.2023</span>
-			</div>
-			<div class="main__quantitydone">
-				0 done <br>
-				<span>Completed Tasks</span>
-			</div>
-		</div>
-		<div class="main__todo">
-			<form id="new-todo-form" action="" class="form-input">
-				<input name="content" placeholder="What you want to do?" value="" class="new__item" type="text">
-				<button id="new-todo-btn" class="submit__btn" type="submit">Add</button>
-			</form>
-			<div class="todo__header">
-				<h1 class="todo__title"><span>0</span> Tasks</h1>
-				<div class="todo__filter">
-					<div class="filter__active filter-btn active">active</div>
-					<div class="filter__done filter-btn">done</div>
+		<header>
+			<div class="app__header">
+				<div class="header__avatar">
+					<img src="./img/Rectangle-15.svg" alt="">
+				</div>
+				<div class="header__actions">
+					<button class="actions__avatar actions-btn">Icon</button>
+					<button class="actions__logout actions-btn">LogOut</button>
 				</div>
 			</div>
+		</header>
+		<main>
+			<h1 class="main__title">
+				Hello
+				Bro
+			</h1>
+			<div class="main__info">
+				<div class="main__date">Today's <br>
+					<span>Jan.20.2023</span>
+				</div>
+				<div class="main__quantitydone">
+					0 done <br>
+					<span>Completed Tasks</span>
+				</div>
+			</div>
+			<div class="main__todo">
+				<form id="new-todo-form" action="" class="form-input">
+					<input name="content" placeholder="What you want to do?" value="" class="new__item" type="text">
+					<button id="new-todo-btn" class="submit__btn" type="submit">Add</button>
+				</form>
+				<div class="todo__header">
+					<h1 class="todo__title"><span>0</span> Tasks</h1>
+					<div class="todo__filter">
+						<div class="filter__active filter-btn active">active</div>
+						<div class="filter__done filter-btn">done</div>
+					</div>
+				</div>
 
-			<div class="todo__list">
-				<!-- <div class="todo__item">
+				<div class="todo__list">
+					<!-- <div class="todo__item">
 						<form action="" class="form">
 							<input class="input__chec" type="checkbox" name="checkbox" id="1">
 							<label for="1" class="checkbox__label"></label>
@@ -63,13 +64,13 @@
 						</div>
 					</div> -->
 
+				</div>
 			</div>
-		</div>
-		</div>
+	</div>
 	</main>
 	</div>
 
 	<script src="./app.js"></script>
-	</body>
+</body>
 
 </html>
