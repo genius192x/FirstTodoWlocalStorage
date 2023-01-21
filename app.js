@@ -5,6 +5,66 @@ const newTodoForm = document.querySelector('#new-todo-form');
 const userName = localStorage.getItem('userName') || [];
 
 
+//add tasks counter
+const counter = document.querySelector('.tasks-counter');
+counter.innerHTML = todos.length || '0';
+
+//add current date
+let date = new Date();
+let fullDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+const dateWrap = document.querySelector('.date__wrap');
+dateWrap.innerHTML = fullDate;
+
+//add couter for todoDone
+const tasksDoneCountWrap = document.querySelector('.quantitydone');
+function countDone() {
+
+	let todoDone = todos.filter(todo => todo.done);
+
+	tasksDoneCountWrap.innerHTML = `${todoDone.length} done`;
+}
+countDone()
+
+
+
+
+
+const filterOptions = document.querySelector(".filter-todos");
+
+filterOptions.addEventListener("change", (e) => {
+	
+	const todos = document.querySelector('.todo__list').childNodes;
+	todos.forEach(todo => {
+
+
+		switch (e.target.value) {
+			case 'All':
+				todo.style.display = "flex";
+				break;
+			case 'Active':
+				if (todo.classList.contains("done")) {
+					todo.style.display = "none";
+				} else {
+					todo.style.display = "block";
+				}
+				break;
+			case 'Done':
+				if (todo.classList.contains("done")) {
+					todo.style.display = "flex";
+				} else {
+					todo.style.display = "none";
+				}
+				break;
+		}
+
+
+	})
+
+})
+
+
+
+
 newTodoForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const todo = {
@@ -18,6 +78,8 @@ newTodoForm.addEventListener('submit', (e) => {
 
 	e.target.reset();
 	renderTodo()
+	countDone()
+	counter.innerHTML = todos.length
 })
 renderTodo()
 
@@ -99,7 +161,10 @@ function renderTodo() {
 			} else {
 				todoItem.classList.remove('done');
 			}
+			countDone()
 			renderTodo()
+
+
 		})
 		editBtn.addEventListener('click', (e) => {
 			const input = todoItem.querySelector('.todo__text');
@@ -120,6 +185,8 @@ function renderTodo() {
 			todos = todos.filter(t => t != todo);
 			localStorage.setItem('todos', JSON.stringify(todos));
 			renderTodo();
+			counter.innerHTML = todos.length
+			countDone()
 		})
 
 	});

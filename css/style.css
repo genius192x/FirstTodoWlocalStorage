@@ -153,11 +153,14 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.main__info span {
+.main__date span {
   color: #a1a1a1;
 }
 .main__quantitydone {
   text-align: right;
+}
+.main__quantitydone span:last-child {
+  color: #a1a1a1;
 }
 .main__todo {
   margin-top: 50px;
@@ -331,8 +334,17 @@ main {
   border: 1px solid #008cff;
   border-radius: 20px;
   cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.filter-btn:hover {
+  background-color: #008cff;
+  color: black;
 }
 .filter-btn.active {
   background-color: #008cff;
   color: black;
+}
+
+.quantitydone {
+  color: white;
 }

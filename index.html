@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<title>ToDoApp</title>
 </head>
@@ -30,10 +30,10 @@
 			</h1>
 			<div class="main__info">
 				<div class="main__date">Today's <br>
-					<span>Jan.20.2023</span>
+					<span class="date__wrap">Jan.20.2023</span>
 				</div>
 				<div class="main__quantitydone">
-					0 done <br>
+					<span class="quantitydone">0 done</span> <br>
 					<span>Completed Tasks</span>
 				</div>
 			</div>
@@ -43,26 +43,21 @@
 					<button id="new-todo-btn" class="submit__btn" type="submit">Add</button>
 				</form>
 				<div class="todo__header">
-					<h1 class="todo__title"><span>0</span> Tasks</h1>
+					<h1 class="todo__title"><span class="tasks-counter"></span>Tasks</h1>
 					<div class="todo__filter">
-						<div class="filter__active filter-btn active">active</div>
-						<div class="filter__done filter-btn">done</div>
+						<select name="todos" class="filter-todos">
+							<option value="All">All</option>
+							<option value="Active">Active</option>
+							<option value="Done">Done</option>
+						</select>
+						<!-- <div class="filter__all filter-btn active ">All</div>
+						<div class="filter__active filter-btn ">active</div>
+						<div class="filter__done filter-btn">done</div> -->
 					</div>
 				</div>
 
 				<div class="todo__list">
-					<!-- <div class="todo__item">
-						<form action="" class="form">
-							<input class="input__chec" type="checkbox" name="checkbox" id="1">
-							<label for="1" class="checkbox__label"></label>
-						</form>
 
-						<input value="Здесь задача" type="text" class="todo__text" readonly></input>
-						<div class="todo__actions">
-							<button class="todo__edit todo-btn">Edit</button>
-							<button class="todo__del todo-btn">Delete</button>
-						</div>
-					</div> -->
 
 				</div>
 			</div>

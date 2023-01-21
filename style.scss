@@ -161,20 +161,25 @@ main {
 		margin-top: 20px;
 		display: flex;
 		justify-content: space-between;
-		span {
-			color: #a1a1a1;
-		}
 	}
 
 	// .main__date
 
 	&__date {
+		span {
+			color: #a1a1a1;
+		}
 	}
 
 	// .main__quantitydone
 
 	&__quantitydone {
 		text-align: right;
+		span {
+			&:last-child {
+				color: #a1a1a1;
+			}
+		}
 	}
 
 	// .main__todo
@@ -238,6 +243,7 @@ main {
 		border-radius: 5px;
 	}
 }
+
 .todo {
 	// .todo__header
 
@@ -356,8 +362,16 @@ main {
 	border: 1px solid #008cff;
 	border-radius: 20px;
 	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	&:hover {
+		background-color: #008cff;
+		color: black;
+	}
 	&.active {
 		background-color: #008cff;
 		color: black;
 	}
+}
+.quantitydone {
+	color: white;
 }
