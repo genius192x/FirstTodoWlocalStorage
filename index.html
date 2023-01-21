@@ -12,57 +12,93 @@
 
 <body>
 	<div class=" app__wrapper">
-		<header>
-			<div class="app__header">
-				<div class="header__avatar">
-					<img src="./img/Rectangle-15.svg" alt="">
+		<div class="authorization">
+			<h1>Write Your Name</h1>
+			<form class="user__form" action="">
+				<input name="nameUser" class="authorization__name" placeholder="Your name" type="text">
+				<div class="avatar__pick">
+					<h1>Choose you avatar</h1>
+					<div class="avatars">
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-1.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-2.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-3.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-4.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-5.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-6.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-7.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-8.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-9.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-10.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-11.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-12.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-13.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-14.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-15.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-16.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-17.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-18.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-19.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-20.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-21.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-22.svg" alt=""></div>
+						<div class="avatars__image"><img class="avatar" src="img/Rectangle-23.svg" alt=""></div>
+
+
+					</div>
+					<button type="submit" class="button__user">Done</button>
 				</div>
-				<div class="header__actions">
-					<button class="actions__avatar actions-btn">Icon</button>
-					<button class="actions__logout actions-btn">LogOut</button>
-				</div>
-			</div>
-		</header>
-		<main>
-			<h1 class="main__title">
-				Hello
-				Bro
-			</h1>
-			<div class="main__info">
-				<div class="main__date">Today's <br>
-					<span class="date__wrap">Jan.20.2023</span>
-				</div>
-				<div class="main__quantitydone">
-					<span class="quantitydone">0 done</span> <br>
-					<span>Completed Tasks</span>
-				</div>
-			</div>
-			<div class="main__todo">
-				<form id="new-todo-form" action="" class="form-input">
-					<input name="content" placeholder="What you want to do?" value="" class="new__item" type="text">
-					<button id="new-todo-btn" class="submit__btn" type="submit">Add</button>
-				</form>
-				<div class="todo__header">
-					<h1 class="todo__title"><span class="tasks-counter"></span>Tasks</h1>
-					<div class="todo__filter">
-						<select name="todos" class="filter-todos">
-							<option value="All">All</option>
-							<option value="Active">Active</option>
-							<option value="Done">Done</option>
-						</select>
-						<!-- <div class="filter__all filter-btn active ">All</div>
-						<div class="filter__active filter-btn ">active</div>
-						<div class="filter__done filter-btn">done</div> -->
+			</form>
+
+		</div>
+		<div class="main__app">
+			<header>
+				<div class="app__header">
+					<div class="header__avatar">
+						
+					</div>
+					<div class="header__actions">
+						<button class="actions__avatar actions-btn">Icon</button>
+						<button class="actions__logout actions-btn">LogOut</button>
 					</div>
 				</div>
-
-				<div class="todo__list">
-
-
+			</header>
+			<main>
+				<h1 class="main__title">
+					Hello
+					Bro
+				</h1>
+				<div class="main__info">
+					<div class="main__date">Today's <br>
+						<span class="date__wrap">Jan.20.2023</span>
+					</div>
+					<div class="main__quantitydone">
+						<span class="quantitydone">0 done</span> <br>
+						<span>Completed Tasks</span>
+					</div>
 				</div>
-			</div>
-	</div>
-	</main>
+				<div class="main__todo">
+					<form id="new-todo-form" action="" class="form-input">
+						<input name="content" placeholder="What you want to do?" value="" class="new__item" type="text">
+						<button id="new-todo-btn" class="submit__btn" type="submit">Add</button>
+					</form>
+					<div class="todo__header">
+						<h1 class="todo__title"><span class="tasks-counter"></span>Tasks</h1>
+						<div class="todo__filter">
+							<select name="todos" class="filter-todos">
+								<option value="All">All</option>
+								<option value="Active">Active</option>
+								<option value="Done">Done</option>
+							</select>
+
+						</div>
+					</div>
+
+					<div class="todo__list"></div>
+				</div>
+
+			</main>
+		</div>
+
 	</div>
 
 	<script src="./app.js"></script>

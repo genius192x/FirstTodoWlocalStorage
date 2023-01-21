@@ -1,10 +1,73 @@
+const userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
+let authWrap = document.querySelector('.authorization');
+const newUser = document.querySelector('.user__form');
+const nameUserInput = document.querySelector('.authorization__name');
+const avatars = document.querySelectorAll('.avatar');
+
+if (userInfo.length > 0) {
+	authWrap.remove();
+	let mainWrap = document.querySelector('.main__app');
+
+	mainWrap.style.transition = "all 0s ease 0s"
+	mainWrap.style.transform = "translate(0,0)"
+}
+
+for (let i = 0; i < avatars.length; i++) {
+	avatars[i].addEventListener('click', function () {
+		for (let i = 0; i < avatars.length; i++) {
+			avatars[i].parentElement.classList.remove('active');
+		}
+		this.parentElement.classList.add('active');
+	})
+}
+let avatar;
+window.addEventListener('click', e => {
+	if (e.target.classList.contains('avatar')) {
+		avatar = e.target.getAttribute('src');
+	}
+
+})
+newUser.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	console.log(e.target.elements);
+	console.log('работает');
+	const User = {
+		name: e.target.elements.nameUser.value,
+		avatar: avatar,
+	}
+	if (User.name) {
+		userInfo.push(User);
+		localStorage.setItem('userInfo', JSON.stringify(userInfo));
+		let authWrap = document.querySelector('.authorization');
+		authWrap.style.transform = "translate(-100%,0)"
+		let mainWrap = document.querySelector('.main__app');
+		mainWrap.style.transform = "translate(0,0)"
+		authWrap.remove();
+	}
+
+	getUserInfo()
+})
+
+
 
 let todos;
 todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
-const userName = localStorage.getItem('userName') || [];
+// const userName = localStorage.getItem('userName') || [];
+function getUserInfo() {
+	const userData = JSON.parse(localStorage.getItem('userInfo')) || [];
+	const userInfo = userData[0];
+	console.log(userInfo);
+	const avatar = document.querySelector('.header__avatar');
+	const mainTitle = document.querySelector('.main__title');
+	if (userData.length > 0) {
+		mainTitle.innerHTML = `Hello, ${userInfo.name}`
+		avatar.innerHTML = `<img class="main__avatar" src="./${userInfo.avatar}" alt="">`
+	}
 
-
+}
+getUserInfo()
 //add tasks counter
 const counter = document.querySelector('.tasks-counter');
 counter.innerHTML = todos.length || '0';
@@ -18,21 +81,17 @@ dateWrap.innerHTML = fullDate;
 //add couter for todoDone
 const tasksDoneCountWrap = document.querySelector('.quantitydone');
 function countDone() {
-
+	console.log('why');
 	let todoDone = todos.filter(todo => todo.done);
 
 	tasksDoneCountWrap.innerHTML = `${todoDone.length} done`;
 }
 countDone()
 
-
-
-
-
 const filterOptions = document.querySelector(".filter-todos");
 
 filterOptions.addEventListener("change", (e) => {
-	
+
 	const todos = document.querySelector('.todo__list').childNodes;
 	todos.forEach(todo => {
 
@@ -61,9 +120,6 @@ filterOptions.addEventListener("change", (e) => {
 	})
 
 })
-
-
-
 
 newTodoForm.addEventListener('submit', (e) => {
 	e.preventDefault();
