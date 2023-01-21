@@ -45,7 +45,7 @@ filterOptions.addEventListener("change", (e) => {
 				if (todo.classList.contains("done")) {
 					todo.style.display = "none";
 				} else {
-					todo.style.display = "block";
+					todo.style.display = "flex";
 				}
 				break;
 			case 'Done':
