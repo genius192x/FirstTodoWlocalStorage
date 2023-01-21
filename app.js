@@ -5,7 +5,7 @@ const nameUserInput = document.querySelector('.authorization__name');
 const avatars = document.querySelectorAll('.avatar');
 
 if (userInfo.length > 0) {
-	authWrap.remove();
+
 	let mainWrap = document.querySelector('.main__app');
 
 	mainWrap.style.transition = "all 0s ease 0s"
