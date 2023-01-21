@@ -43,15 +43,20 @@ newUser.addEventListener('submit', (e) => {
 		authWrap.style.transform = "translate(-100%,0)"
 		let mainWrap = document.querySelector('.main__app');
 		mainWrap.style.transform = "translate(0,0)"
-
+		setTimeout(authWrap.remove(), 1000)
 
 	}
 
 	getUserInfo()
 })
 
+const logoutBtn = document.querySelector('.actions__logout');
+logoutBtn.addEventListener('click', () => {
+	localStorage.clear('userInfo');
+	window.location.reload();
+})
 
-
+// ниже все что связано с главной страницей todo
 let todos;
 todos = JSON.parse(localStorage.getItem('todos')) || [];
 const newTodoForm = document.querySelector('#new-todo-form');
