@@ -91,6 +91,23 @@ body {
     background-position: 0% 50%;
   }
 }
+*::-webkit-scrollbar,
+html *::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track,
+html *::-webkit-scrollbar-track {
+  background: orange;
+}
+
+*::-webkit-scrollbar-thumb,
+html *::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 5px;
+  border: 3px solid orange;
+}
+
 .app__header {
   display: flex;
   justify-content: space-between;
@@ -100,7 +117,6 @@ body {
   position: relative;
   background-color: white;
   width: 540px;
-  min-height: 901px;
   padding: 20px;
   overflow-x: hidden;
   border-radius: 20px;
@@ -108,6 +124,17 @@ body {
   color: white;
   margin: 0 auto;
   margin-top: 10px;
+}
+.app__wrapper .app__wrapper::-webkit-scrollbar {
+  width: 3px;
+}
+.app__wrapper .app__wrapper::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+.app__wrapper .app__wrapper::-webkit-scrollbar-thumb {
+  background: rgb(252, 2, 91);
+  background: linear-gradient(152deg, rgba(252, 2, 91, 0.5) 0%, rgba(21, 243, 252, 0.5) 100%);
+  border-radius: 10px;
 }
 @media (max-width: 960px) {
   .app__wrapper {
@@ -359,7 +386,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding-bottom: 20px;
 }
 .authorization__name {
   color: white;

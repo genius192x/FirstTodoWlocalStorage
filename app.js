@@ -30,8 +30,7 @@ window.addEventListener('click', e => {
 newUser.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	console.log(e.target.elements);
-	console.log('работает');
+
 	const User = {
 		name: e.target.elements.nameUser.value,
 		avatar: avatar,
@@ -64,7 +63,7 @@ const newTodoForm = document.querySelector('#new-todo-form');
 function getUserInfo() {
 	const userData = JSON.parse(localStorage.getItem('userInfo')) || [];
 	const userInfo = userData[0];
-	console.log(userInfo);
+
 	const avatar = document.querySelector('.header__avatar');
 	const mainTitle = document.querySelector('.main__title');
 	if (userData.length > 0) {
@@ -87,7 +86,7 @@ dateWrap.innerHTML = fullDate;
 //add couter for todoDone
 const tasksDoneCountWrap = document.querySelector('.quantitydone');
 function countDone() {
-	console.log('why');
+
 	let todoDone = todos.filter(todo => todo.done);
 
 	tasksDoneCountWrap.innerHTML = `${todoDone.length} done`;
