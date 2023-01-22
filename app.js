@@ -35,7 +35,7 @@ newUser.addEventListener('submit', (e) => {
 		name: e.target.elements.nameUser.value,
 		avatar: avatar,
 	}
-	if (User.name) {
+	if (User.name && User.avatar) {
 		userInfo.push(User);
 		localStorage.setItem('userInfo', JSON.stringify(userInfo));
 		let authWrap = document.querySelector('.authorization');
@@ -44,6 +44,10 @@ newUser.addEventListener('submit', (e) => {
 		mainWrap.style.transform = "translate(0,0)"
 		setTimeout(authWrap.remove(), 1000)
 
+	} else if (!User.name) {
+		alert("You didn't write your name")
+	} else if (!User.avatar) {
+		alert("choose your avatar")
 	}
 
 	getUserInfo()
@@ -187,13 +191,13 @@ function renderTodo() {
 		deleteBtn.classList.add("todo__del", "todo-btn")
 
 
-		const editBtn = document.createElement('div');
+		const editBtn = document.createElement('button');
 		editBtn.classList.add("todo__edit", "todo-btn")
 
 
 
-		deleteBtn.innerHTML = "Delete";
-		editBtn.innerHTML = "Edit";
+		deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+		editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 		todoForm.appendChild(inputChec);
 		todoForm.appendChild(label);
 		todoItem.appendChild(todoForm);
