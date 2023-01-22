@@ -71,7 +71,7 @@ function getUserInfo() {
 	const avatar = document.querySelector('.header__avatar');
 	const mainTitle = document.querySelector('.main__title');
 	if (userData.length > 0) {
-		mainTitle.innerHTML = `Hello, ${userInfo.name}`
+		mainTitle.innerHTML = `Привет, ${userInfo.name}`
 		avatar.innerHTML = `<img class="main__avatar" src="./${userInfo.avatar}" alt="">`
 	}
 
@@ -93,7 +93,7 @@ function countDone() {
 
 	let todoDone = todos.filter(todo => todo.done);
 
-	tasksDoneCountWrap.innerHTML = `${todoDone.length} done`;
+	tasksDoneCountWrap.innerHTML = `${todoDone.length} сделано`;
 }
 countDone()
 
@@ -106,17 +106,17 @@ filterOptions.addEventListener("change", (e) => {
 
 
 		switch (e.target.value) {
-			case 'All':
+			case 'Все':
 				todo.style.display = "flex";
 				break;
-			case 'Active':
+			case 'Активные':
 				if (todo.classList.contains("done")) {
 					todo.style.display = "none";
 				} else {
 					todo.style.display = "flex";
 				}
 				break;
-			case 'Done':
+			case 'Выполненные':
 				if (todo.classList.contains("done")) {
 					todo.style.display = "flex";
 				} else {
