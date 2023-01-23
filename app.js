@@ -87,7 +87,7 @@ let fullDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 const dateWrap = document.querySelector('.date__wrap');
 dateWrap.innerHTML = fullDate;
 
-//add couter for todoDone
+//add counter for todoDone
 const tasksDoneCountWrap = document.querySelector('.quantitydone');
 function countDone() {
 
@@ -106,17 +106,17 @@ filterOptions.addEventListener("change", (e) => {
 
 
 		switch (e.target.value) {
-			case 'Все':
+			case 'All':
 				todo.style.display = "flex";
 				break;
-			case 'Активные':
+			case 'Active':
 				if (todo.classList.contains("done")) {
 					todo.style.display = "none";
 				} else {
 					todo.style.display = "flex";
 				}
 				break;
-			case 'Выполненные':
+			case 'Done':
 				if (todo.classList.contains("done")) {
 					todo.style.display = "flex";
 				} else {
@@ -137,12 +137,24 @@ newTodoForm.addEventListener('submit', (e) => {
 		done: false,
 	}
 	if (todo.text) {
+
 		todos.push(todo);
+
+		renderTodo()
+		const todoItem = document.querySelector('.todo__item');
+
+		todoItem.style.animation = 'normal animItemAdd 0.5s ease-out';
+		function removeStyle() {
+			todoItem.style.removeProperty("animation");
+
+		}
+
 		localStorage.setItem('todos', JSON.stringify(todos));
 	}
-
+	setTimeout(removeStyle, 1000)
 	e.target.reset();
-	renderTodo()
+
+
 	countDone()
 	counter.innerHTML = todos.length
 })
@@ -202,13 +214,15 @@ function renderTodo() {
 		todoForm.appendChild(label);
 		todoItem.appendChild(todoForm);
 		todoItem.appendChild(input);
-		todoActions.appendChild(editBtn);
+		// todoActions.appendChild(editBtn);
 		todoActions.appendChild(deleteBtn);
 
 
 
 		todoItem.appendChild(todoActions);
+
 		todoList.appendChild(todoItem)
+
 
 		if (todo.done) {
 			todoItem.classList.add('done')
@@ -231,7 +245,7 @@ function renderTodo() {
 
 
 		})
-		editBtn.addEventListener('click', (e) => {
+		input.addEventListener('click', (e) => {
 			const input = todoItem.querySelector('.todo__text');
 			input.removeAttribute('readonly');
 			input.focus();
@@ -249,7 +263,19 @@ function renderTodo() {
 		deleteBtn.addEventListener('click', e => {
 			todos = todos.filter(t => t != todo);
 			localStorage.setItem('todos', JSON.stringify(todos));
-			renderTodo();
+
+			console.log(todoItem);
+
+			todoItem.style.animation = ' animItemDel alternate  0.5s ease-out ';
+			function removeStyle() {
+				todoItem.style.removeProperty("animation");
+
+			}
+			setTimeout(removeStyle, 500)
+			setTimeout(renderTodo, 500)
+
+
+
 			counter.innerHTML = todos.length
 			countDone()
 		})
