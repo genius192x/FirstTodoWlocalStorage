@@ -117,6 +117,7 @@ html *::-webkit-scrollbar-thumb {
   position: relative;
   background-color: white;
   width: 540px;
+  min-height: 760px;
   padding: 20px;
   overflow-x: hidden;
   border-radius: 20px;
@@ -299,6 +300,7 @@ main {
   margin-top: 20px;
 }
 .todo__item {
+  position: relative;
   border-radius: 20px;
   height: 70px;
   padding: 0px 0px 0px 20px;
@@ -432,7 +434,6 @@ main {
 .authorization {
   position: absolute;
   transition: all 0.5s ease 0s;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -445,6 +446,7 @@ main {
   margin-top: 30px;
   background: none;
   border-bottom: 1px solid #008cff;
+  max-width: 95%;
 }
 .authorization form {
   display: flex;

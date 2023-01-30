@@ -1,25 +1,30 @@
-const userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
+let userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
 let authWrap = document.querySelector('.authorization');
 const newUser = document.querySelector('.user__form');
 const nameUserInput = document.querySelector('.authorization__name');
 const avatars = document.querySelectorAll('.avatar');
-
+let mainWrap = document.querySelector('.main__app');
+console.log(userInfo);
 if (userInfo.length > 0) {
-	authWrap.remove();
+	// authWrap.remove();
 	let mainWrap = document.querySelector('.main__app');
-
+	authWrap.style.transition = "all 0s ease 0s"
+	authWrap.style.transform = "translate(-110%,0)"
 	mainWrap.style.transition = "all 0s ease 0s"
 	mainWrap.style.transform = "translate(0,0)"
 }
-
-for (let i = 0; i < avatars.length; i++) {
-	avatars[i].addEventListener('click', function () {
-		for (let i = 0; i < avatars.length; i++) {
-			avatars[i].parentElement.classList.remove('active');
-		}
-		this.parentElement.classList.add('active');
-	})
+function addActiveAvatr() {
+	for (let i = 0; i < avatars.length; i++) {
+		avatars[i].addEventListener('click', function () {
+			for (let i = 0; i < avatars.length; i++) {
+				avatars[i].parentElement.classList.remove('active');
+			}
+			this.parentElement.classList.add('active');
+		})
+	}
 }
+addActiveAvatr()
+
 let avatar;
 window.addEventListener('click', e => {
 	if (e.target.classList.contains('avatar')) {
@@ -38,16 +43,17 @@ newUser.addEventListener('submit', (e) => {
 	if (User.name && User.avatar) {
 		userInfo.push(User);
 		localStorage.setItem('userInfo', JSON.stringify(userInfo));
-		let authWrap = document.querySelector('.authorization');
-		authWrap.style.transform = "translate(-100%,0)"
-		let mainWrap = document.querySelector('.main__app');
+		// let authWrap = document.querySelector('.authorization');
+		authWrap.style.transition = "all 0.5s ease 0s"
+		authWrap.style.transform = "translate(-110%,0)"
+
 		mainWrap.style.transform = "translate(0,0)"
-		setTimeout(authWrap.remove(), 1000)
+		// setTimeout(authWrap.remove(), 1000)
 
 	} else if (!User.name) {
-		alert("You didn't write your name")
+		alert("Напишите свое имя")
 	} else if (!User.avatar) {
-		alert("choose your avatar")
+		alert("Выберите аватар")
 	}
 
 	getUserInfo()
@@ -55,8 +61,22 @@ newUser.addEventListener('submit', (e) => {
 
 const logoutBtn = document.querySelector('.actions__logout');
 logoutBtn.addEventListener('click', () => {
-	localStorage.clear('userInfo');
-	window.location.reload();
+	localStorage.clear();
+	userInfo = [];
+	authWrap.style.transition = "all 0.5s ease 0s"
+	authWrap.style.transform = "translate(0%,0)"
+	mainWrap.style.transition = "all 0.5s ease 0s"
+	mainWrap.style.transform = "translate(110%,0)"
+	nameUserInput.value = '';
+	for (let i = 0; i < avatars.length; i++) {
+
+		for (let i = 0; i < avatars.length; i++) {
+			avatars[i].parentElement.classList.remove('active');
+		}
+
+
+	}
+	// window.location.reload();
 })
 
 // ниже все что связано с главной страницей todo
@@ -79,6 +99,7 @@ function getUserInfo() {
 getUserInfo()
 //add tasks counter
 const counter = document.querySelector('.tasks-counter');
+
 counter.innerHTML = todos.length || '0';
 
 //add current date
@@ -108,6 +129,8 @@ filterOptions.addEventListener("change", (e) => {
 		switch (e.target.value) {
 			case 'All':
 				todo.style.display = "flex";
+
+				counter.innerHTML = todos.length || '0';
 				break;
 			case 'Active':
 				if (todo.classList.contains("done")) {
@@ -115,6 +138,7 @@ filterOptions.addEventListener("change", (e) => {
 				} else {
 					todo.style.display = "flex";
 				}
+
 				break;
 			case 'Done':
 				if (todo.classList.contains("done")) {
@@ -122,6 +146,14 @@ filterOptions.addEventListener("change", (e) => {
 				} else {
 					todo.style.display = "none";
 				}
+				const todosArr = Array.from(todos)
+				const todosFilter = todosArr.filter(function (item) {
+					if (item.classList.contains('done')) {
+
+					}
+				})
+
+				console.log(todosFilter);
 				break;
 		}
 
@@ -163,7 +195,7 @@ renderTodo()
 function renderTodo() {
 	const todoList = document.querySelector('.todo__list');
 	todoList.innerHTML = "";
-	todos.forEach((todo, index) => {
+	todos.reverse().forEach((todo, index) => {
 		const todoItem = document.createElement('div');
 		todoItem.classList.add("todo__item");
 		todoItem.innerHTML = '';

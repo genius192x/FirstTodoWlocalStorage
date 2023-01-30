@@ -104,7 +104,7 @@ html *::-webkit-scrollbar-thumb {
 		position: relative;
 		background-color: white;
 		width: 540px;
-		// min-height: 901px;
+		min-height: 760px;
 		padding: 20px;
 
 		overflow-x: hidden;
@@ -125,6 +125,7 @@ html *::-webkit-scrollbar-thumb {
 			background: linear-gradient(152deg, rgba(252, 2, 91, 0.5) 0%, rgba(21, 243, 252, 0.5) 100%);
 			border-radius: 10px;
 		}
+
 		@media (max-width: 960px) {
 			width: 100%;
 			min-height: 100vh;
@@ -317,7 +318,7 @@ main {
 	// .todo__item
 
 	&__item {
-		// animation: normal animItem 1s ease;
+		position: relative;
 		border-radius: 20px;
 		height: 70px;
 		padding: 0px 0px 0px 20px;
@@ -331,6 +332,7 @@ main {
 		&:not(:last-child) {
 			margin-bottom: 20px;
 		}
+
 		&.done {
 			transition: background 1s ease;
 			background: rgb(0, 204, 0);
@@ -446,7 +448,7 @@ main {
 .authorization {
 	position: absolute;
 	transition: all 0.5s ease 0s;
-	min-height: 100%;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -458,6 +460,7 @@ main {
 		margin-top: 30px;
 		background: none;
 		border-bottom: 1px solid #008cff;
+		max-width: 95%;
 	}
 	form {
 		display: flex;
