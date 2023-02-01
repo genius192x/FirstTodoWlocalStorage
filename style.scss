@@ -219,6 +219,11 @@ main {
 		margin-top: 50px;
 	}
 }
+// .text {
+// 	white-space: pre-line;
+// 	max-width: 50px;
+// 	overflow-wrap: break-word;
+// }
 .form-input {
 	display: flex;
 	align-items: flex-end;
@@ -256,11 +261,14 @@ main {
 	background-repeat: no-repeat;
 }
 .form {
+	// margin-top: 10px;
 	display: flex;
+	align-self: flex-start;
 	align-items: center;
 }
 .checkbox__label {
 	position: relative;
+
 	width: 20px;
 	height: 20px;
 	&::before {
@@ -320,8 +328,8 @@ main {
 	&__item {
 		position: relative;
 		border-radius: 20px;
-		height: 70px;
-		padding: 0px 0px 0px 20px;
+		// height: 70px;
+		padding: 20px 0px 20px 20px;
 		background: yellow;
 		display: flex;
 		justify-content: space-between;
@@ -336,9 +344,7 @@ main {
 		&.done {
 			transition: background 1s ease;
 			background: rgb(0, 204, 0);
-			.todo__actions {
-				border-left: 1px solid #000;
-			}
+
 			.todo__text {
 				text-decoration: line-through;
 			}
@@ -353,7 +359,13 @@ main {
 	&__text {
 		background: none;
 		font-size: 18px;
+		font-size: 18px;
+		font-family: sans-serif;
 		flex: 1 1 auto;
+		resize: none;
+		height: 100px;
+		// height: max-content;
+		// word-break: break-all;
 		// margin-right: 20px;
 		// max-width: 90%;
 		&:focus {
@@ -367,6 +379,8 @@ main {
 	// .todo__actions
 
 	&__actions {
+		// margin-top: 5px;
+		align-self: flex-start;
 		height: 100%;
 	}
 
@@ -388,7 +402,7 @@ main {
 		border-radius: 0px 10px 10px 0px;
 		font-weight: 600;
 		height: 100%;
-		background-color: rgb(255, 98, 98);
+		// background-color: rgb(255, 98, 98);
 		animation-iteration-count: 1;
 		@media (max-width: 768px) {
 			border-radius: 0px 20px 20px 0px;
@@ -411,13 +425,22 @@ main {
 		transform: translate(120%, 0);
 	}
 }
+*.hidden {
+	display: none;
+}
+.todo__text_p {
+	font-size: 18px;
+	flex: 1 1 auto;
+	max-width: 80%;
+	word-break: break-all;
+}
 .todo-btn {
 	width: 70px;
-	padding: 5px 10px;
+	// padding: 5px 10px;
 	transition: all 0.3s ease 0s;
 	&:hover {
-		color: white;
-		background: #000;
+		color: red;
+		// background: #000;
 	}
 	@media (max-width: 768px) {
 		width: 70px;
@@ -508,6 +531,7 @@ main {
 	&__image {
 		background: #23a6d5;
 		border-radius: 50%;
+		height: 90px;
 		&.active {
 			background: rgb(108, 255, 199);
 		}
