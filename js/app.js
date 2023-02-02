@@ -69,7 +69,7 @@ logoutBtn.addEventListener('click', () => {
 	const avatars = document.querySelector('.avatars');
 	localStorage.clear();
 	userInfo = [];
-
+	todos = [];
 	authWrap.style.transition = "all 0.5s ease 0s"
 	authWrap.style.transform = "translate(0%,0)"
 	mainWrap.style.transition = "all 0.5s ease 0s"
