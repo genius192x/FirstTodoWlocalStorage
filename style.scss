@@ -350,7 +350,7 @@ main {
 			}
 		}
 		@media (max-width: 767px) {
-			padding: 0px 0px 0px 20px;
+			padding: 20px 0px 20px 10px;
 		}
 	}
 
@@ -362,8 +362,8 @@ main {
 		font-size: 18px;
 		font-family: sans-serif;
 		flex: 1 1 auto;
-		resize: none;
-		height: 100px;
+		resize: vertical;
+		// height: 100px;
 		// height: max-content;
 		// word-break: break-all;
 		// margin-right: 20px;

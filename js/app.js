@@ -234,7 +234,7 @@ function renderTodo() {
 		textarea.classList.add('todo__text')
 		textarea.classList.add('hidden')
 		// textarea.setAttribute('cols', "90");
-		// textarea.setAttribute('rows', "3");
+		textarea.setAttribute('rows', "3");
 		textarea.innerText = todo.text;
 		// input.setAttribute('readonly', "")
 		// input.innerHTML = `<input value="${todo.text}" type="text" class="todo__text" readonly></input>`

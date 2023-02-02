@@ -324,7 +324,7 @@ main {
 }
 @media (max-width: 767px) {
   .todo__item {
-    padding: 0px 0px 0px 20px;
+    padding: 20px 0px 20px 10px;
   }
 }
 .todo__text {
@@ -333,8 +333,7 @@ main {
   font-size: 18px;
   font-family: sans-serif;
   flex: 1 1 auto;
-  resize: none;
-  height: 100px;
+  resize: vertical;
 }
 .todo__text:focus {
   border-bottom: 1px solid black;
