@@ -301,25 +301,27 @@ main {
   margin-top: 20px;
 }
 .todo__item {
-  position: relative;
   border-radius: 20px;
   padding: 20px 0px 20px 20px;
-  background: yellow;
+  border: 1px solid rgb(255, 255, 255);
+  background: rgb(255, 255, 138);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background 1s ease;
   color: black;
   transform-origin: 0%, 50%;
+  overflow: hidden;
 }
 .todo__item:not(:last-child) {
   margin-bottom: 20px;
 }
 .todo__item.done {
-  transition: background 1s ease;
-  background: rgb(0, 204, 0);
+  background-color: #23d5ab;
 }
 .todo__item.done .todo__text {
+  text-decoration: line-through;
+}
+.todo__item.done .todo__text_p {
   text-decoration: line-through;
 }
 @media (max-width: 767px) {

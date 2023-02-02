@@ -326,26 +326,30 @@ main {
 	// .todo__item
 
 	&__item {
-		position: relative;
 		border-radius: 20px;
 		// height: 70px;
 		padding: 20px 0px 20px 20px;
-		background: yellow;
+		border: 1px solid rgb(255, 255, 255);
+		background: rgb(255, 255, 138);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		transition: background 1s ease;
+
 		color: black;
 		transform-origin: 0%, 50%;
+		overflow: hidden;
+
 		&:not(:last-child) {
 			margin-bottom: 20px;
 		}
 
 		&.done {
-			transition: background 1s ease;
-			background: rgb(0, 204, 0);
+			background-color: #23d5ab;
 
 			.todo__text {
+				text-decoration: line-through;
+			}
+			.todo__text_p {
 				text-decoration: line-through;
 			}
 		}

@@ -84,7 +84,7 @@ logoutBtn.addEventListener('click', () => {
 
 
 	}
-
+	const todoList = document.querySelector('.todo__list').innerHTML = "";
 	todos = [];
 	// window.location.reload();
 })
@@ -107,13 +107,15 @@ function getUserInfo() {
 }
 getUserInfo()
 //add tasks counter
-const counter = document.querySelector('.tasks-counter');
+// const counter = document.querySelector('.tasks-counter');
 
-counter.innerHTML = todos.length || '0';
+// counter.innerHTML = todos.length || '0';
 
 //add current date
 let date = new Date();
-let fullDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+const day = (date.getDate() < 10) ? ("0" + date.getDate()) : date.getDate();
+const month = (date.getMonth() < 10) ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1;
+let fullDate = `${day}.${month}.${date.getFullYear()}`
 const dateWrap = document.querySelector('.date__wrap');
 dateWrap.innerHTML = fullDate;
 
