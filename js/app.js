@@ -13,11 +13,11 @@ if (userInfo.length > 0) {
 	mainWrap.style.transition = "all 0s ease 0s"
 	mainWrap.style.transform = "translate(0,0)"
 }
+// let avatars;
 let avatars;
-
 function addActiveAvatar() {
-
 	let avatars = document.querySelectorAll('.avatar');
+
 	for (let i = 0; i < avatars.length; i++) {
 		avatars[i].addEventListener('click', function () {
 			for (let i = 0; i < avatars.length; i++) {
@@ -66,7 +66,7 @@ let todos;
 todos = JSON.parse(localStorage.getItem('todos')) || [];
 const logoutBtn = document.querySelector('.actions__logout');
 logoutBtn.addEventListener('click', () => {
-	const avatars = document.querySelector('.avatars');
+	let avatars = document.querySelectorAll('.avatar');
 	localStorage.clear();
 	userInfo = [];
 	todos = [];
@@ -172,6 +172,8 @@ filterOptions.addEventListener("change", (e) => {
 	})
 
 })
+//========================================================================================================================================================
+//========================================================================================================================================================
 
 newTodoForm.addEventListener('submit', (e) => {
 	e.preventDefault();
